@@ -4,19 +4,18 @@
     {{ partial "head.html" . }}
   </head>
   <body>
-    <div class="container">      
-      {{ partial "header.html" . }}
-      
-      
-      <div class="page-content">
+    {{ partial "header.html" . }}
 
-        {{ block "main" . }}
-        <!-- The part of the page that begins to differ between templates -->
-        {{ end }}
-      </div>
-      {{ partial "footer.html" . }}
+    <div class="fluid_container">
+
+      {{ block "main" . }}
+      <!-- The part of the page that begins to differ between templates -->
+      {{ end }}
+
     </div>
-      <script type="text/javascript" src="/js/main.js?cache={{ now }}"></script>
-      <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
-    </body>
+
+    {{ partial "footer.html" . }}
+    <script type="text/javascript" src="/js/main.js?cache={{ now }}"></script>
+    <script src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+  </body>
 </html>

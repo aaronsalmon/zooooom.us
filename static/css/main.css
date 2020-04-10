@@ -3,6 +3,72 @@ img{
 
 }
 
+hr {
+  margin-top: 40px;
+}
+.jumbotron{
+  margin-bottom:0 !important;
+  background:rgba(255,255,255,.85) !important;
+  border: 0;
+  border-radius: 0;
+}
+
+.parallax {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 300px;
+    background:rgb(20,20,20);
+}
+.parallax__group {
+    height: 260px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease 0s;
+    z-index:100;
+    height:50%;    opacity: .95;
+
+}
+
+.parallax__layer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.parallax__layer--base {
+    transform: translateZ(0px);
+    z-index: 4;
+}
+.parallax__layer--back {
+    transform: translateZ(-100px) scale(1.5);
+    z-index: 3;
+    height:100%;
+}
+
+body, html {
+    overflow: hidden;
+}
+.parallax {
+    font-size: 100%;
+}
+
+#group1 {
+    z-index: 3;
+    height:30%;
+}
+
+
+
+#group1 .parallax__layer--back {
+}
+
+
+.navbar-brand {
+  margin-bottom: 0;
+}
 
 header h1.title{
   
@@ -23,6 +89,9 @@ header h1.title{
   animation: rainbow 8s ease infinite;
   -webkit-text-stroke-width: 0px;
   -webkit-text-stroke-color: black;
+  line-height: 1.15em;
+  padding-left: 10px;
+  font-size: 1.3em;
 }
 
 @keyframes rainbow { 
@@ -34,6 +103,34 @@ header h1.title{
 header{
 
 
+}
+
+body {
+  font-size: 1.2em;
+}
+body, h1, h2, h3, h4, h5, p {
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  margin-top: 1.4em;
+  margin-bottom: .6em;
+}
+
+h3 {
+  margin-top: 1.1em;
+  margin-bottom: .5em;
+}
+
+.container-wrapper {
+  padding-bottom: 58px;
+}
+
+footer {
+  border-top: 1px solid #eee;
+  padding: 15px;
+  text-align: center;
+  background-color: white;
 }
 
 .logo{

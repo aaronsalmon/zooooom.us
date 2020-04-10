@@ -1,31 +1,51 @@
 {{ define "main" }}
-    <main aria-role="main">
-      <header class="homepage-header">
-        <h1>{{.Title}}</h1>
-        {{ with .Params.subtitle }}
-        <span class="subtitle">{{.}}</span>
-        {{ end }}
-      </header>
-      <div class="homepage-content">
-        <p><img src="/images/screenshot.jpg" alt=""></p>
-        <h3 id="this-is-a-real-parody-and-a-real-screensaver">This is a real parody and a real screensaver</h3>
-        <p>It is a real screen saver. It is obviously a parody of our lives right now</p>
-        <h3 id="download-screensaver">Download screensaver <a href="{{ .Site.Params.download_link}}">here</a></h3>
-        <hr>
-        
-        {{.Content}}
-        
-        <h2 id="thanks">Thanks</h2>
-        <p>A lot of people submitted videos. Thank you so much for that. It really makes this all the more funny.</p>
-        <h3 id="video-contributors">Video Contributors</h3>
-        <p>
-          {{ range sort $.Site.Data.contributors "name" }}{{ partial "person.html" . }}{{ end }}
-        </p>
-        <h3 id="design--screensaver-development--etc">Design / Screensaver development / Etc</h3>
-        <p>
-          {{ range sort $.Site.Data.helpers "name" }}{{ partial "person.html" . }}{{ end }}
-        </p>
-        <h3 id="made-with-love-by-harperhttptwittercomharper-and-tolarhttptwittercomtolar">Made with love by <a href="http://twitter.com/harper">@harper</a> and <a href="http://twitter.com/tolar">@tolar</a></h3>
+  <div class="parallax">
+   <div id="group1" class="parallax__group">
+     <div class="parallax__layer parallax__layer--back text-center">
+      <img src="/images/screenshot.jpg" alt="">
+     </div>
+   </div><!-- end of group1-->
+   <div class="parallax__group">
+    <div class="parallax__layer parallax__layer--base">
+      <div class="jumbotron mb-0" style="text-align:center; color:rgb(0,0,0);">  
+        <h1 class="mb-4">{{.Site.Title}}</h1>
+        <h3>{{.Site.Params.Description}}</h3>   
+        <p class="lead pb-3">It is a real screen saver. It is obviously a parody of our lives right now.</p>
+        <a class="btn btn-primary btn-lg" href="{{ .Site.Params.download_link}}">Download Screensaver</a>
+      </div><!--end of jumbotron -->    
+      <div class="container-fluid bg-white container-wrapper">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12 p-5">
+                           
+              {{.Content}}
+              
+              <h2 id="thanks">Thanks</h2>
+              <p>A lot of people submitted videos. Thank you so much for that. It really makes this all the more funny.</p>
+              <h3 id="video-contributors">Video Contributors</h3>
+              <p>
+                {{ range sort $.Site.Data.contributors "name" }}{{ partial "person.html" . }}{{ end }}
+              </p>
+              <h3 id="design--screensaver-development--etc">Design / Screensaver development / Etc</h3>
+              <p>
+                {{ range sort $.Site.Data.helpers "name" }}{{ partial "person.html" . }}{{ end }}
+              </p>
+              <h3 id="made-with-love-by-harperhttptwittercomharper-and-tolarhttptwittercomtolar">Made with love by <a href="http://twitter.com/harper">@harper</a> and <a href="http://twitter.com/tolar">@tolar</a></h3>
+            </div>
+          </div>
+        </div>
+         <footer class="footer">
+    <p class="text-muted small mb-0">
+        <b><i class="fa {{.Site.Params.Icon}}" aria-hidden="true"></i> {{ .Site.Title }}</b>. 
+    This is clearly a parody. It is clearly for fun. If you do not have a sense of humor, please email us. Copyright &copy; {{ now.Format "2006" }} {{ .Site.Params.Name }} &middot; Contact <a
+        href="mailto:{{.Site.Params.email}}" rel="me">{{ .Site.Params.name }}</a></p>    
+        <!--  &middot; Generated @ {{ now.Format "Jan 2, 2006" }} -->
+</footer>
       </div>
-    </main>
+     </div><!--end of parallax base-->
+    </div><!--end of parallax group -->
+
+   </div><!--end of parallax-->
+ </div><!--end of fluid_container-->
+
 {{ end }}
